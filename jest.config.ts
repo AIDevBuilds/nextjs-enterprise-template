@@ -38,7 +38,7 @@ const config: Config = {
     'src/**/*.{ts,tsx}',
     '!src/**/*.d.ts',
     '!src/env.ts',
-    '!src/middleware.ts',
+    '!src/proxy.ts',
     '!src/app/**/layout.tsx',
     '!src/app/**/loading.tsx',
     '!src/app/**/error.tsx',

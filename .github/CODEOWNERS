@@ -8,5 +8,5 @@
 # Security-critical surface.
 /src/shared/lib/auth/   @AIDevBuilds
 /src/app/api/           @AIDevBuilds
-/src/middleware.ts      @AIDevBuilds
+/src/proxy.ts           @AIDevBuilds
 /next.config.ts         @AIDevBuilds

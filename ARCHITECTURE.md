@@ -95,7 +95,7 @@ src/
     request.ts                  # next-intl getRequestConfig (server locale resolution)
 
   env.ts                        # validated env — the ONLY place process.env is read
-  middleware.ts                 # Edge: cookie-presence guard for /dashboard + auth pages
+  proxy.ts                      # Edge: cookie-presence guard (was middleware.ts pre-Next-16)
 
 messages/
   en.json  hi.json              # every user-facing string, by namespace
@@ -135,7 +135,7 @@ other's internals. ESLint + review enforce it.
 - `(auth)` **is** a route group: the parentheses keep it out of the URL, so pages
   are `/login` and `/register`.
 - `dashboard` is a **real path segment**, not a group. That is deliberate — it
-  gives the middleware one matcher (`/dashboard/:path*`) that covers every
+  gives the proxy one matcher (`/dashboard/:path*`) that covers every
   protected page. **Do not rename it to `(dashboard)`**: parentheses would strip
   the prefix, silently producing `/tasks` and `/projects` while every link,
   redirect and matcher still points at `/dashboard/*`.
@@ -227,7 +227,7 @@ Server code must never call bare `fetch` against `API_URL`.
 - Zod schema split into server + client vars. Validates on import. A `Proxy`
   throws if client code touches a server-only var. Missing var → build fails.
 
-### `middleware.ts`
+### `proxy.ts`
 
 - Edge. Cookie **presence** check only (no verification, no network). Redirects
   `/dashboard/*` → `/login?next=` when absent, and `/login|/register` →
@@ -273,7 +273,7 @@ SameSite=Lax cookie on the app's own origin. Client JS cannot read it.**
 ### Trust boundary
 
 - The web tier does **not** verify token signatures. A forged/expired token
-  passes middleware but the upstream API returns 401 on the first data call; the
+  passes the proxy but the upstream API returns 401 on the first data call; the
   proxy forwards it and `apiClient` redirects to `/login`. Tightening to
   signature verification (shared secret / JWKS) in `getServerSession` +
   `[...path]` is a documented hardening step.
@@ -384,7 +384,7 @@ guards this.
 - `next.config.ts` — `reactStrictMode`, `poweredByHeader: false`,
   `output: 'standalone'`, `typedRoutes`, `images.remotePatterns`, and a
   `headers()` block: CSP (permissive enough for Next without a nonce pipeline —
-  tighten with a middleware nonce for strict CSP), HSTS, `X-Content-Type-Options`,
+  tighten with a proxy-set nonce for strict CSP), HSTS, `X-Content-Type-Options`,
   `X-Frame-Options: DENY`, `Referrer-Policy`, `Permissions-Policy`.
 - `src/env.ts` + `.env.example` — every variable documented and validated.
 - Jest via `next/jest`; `testMatch` limited to `tests/unit/**`;
@@ -407,7 +407,7 @@ Deliberately left for the product to decide/own:
    multi-instance or serverless deployments.
 3. **An error-tracking transport** — the plumbing is done; register one with
    `addLogTransport(...)` (e.g. Sentry) and add source-map upload to CI.
-4. **Strict CSP** — nonce-based `script-src` via middleware, replacing the
+4. **Strict CSP** — nonce-based `script-src` via `proxy.ts`, replacing the
    `'unsafe-inline'` default.
 5. **Automated accessibility tests** — add `jest-axe` / `@axe-core/playwright`.
 6. **Sitemap/robots, Storybook, feature flags** — add if the product needs them.
