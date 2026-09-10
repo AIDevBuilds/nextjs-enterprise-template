@@ -6,8 +6,15 @@ this repo, a change here propagates to every downstream app — so the bar is
 
 ## Ground rules
 
-- **`master` is protected.** No direct pushes. Every change goes through a pull
-  request that passes CI and has an approving review.
+- **`master` is protected by a repository ruleset.** Nobody can push to it
+  directly — not collaborators, not repository admins. Every change goes through
+  a pull request that passes all five required checks (`verify`, `e2e`,
+  `gitleaks`, `env-example-has-no-values`, `Analyze`).
+- **Review:** one approving review from a code owner is required, and approvals
+  are dismissed when new commits are pushed. Repository admins hold a
+  `pull request only` bypass, so a lone maintainer can still merge — but that
+  bypass does **not** extend to direct pushes, force pushes or branch deletion.
+- **Force pushes and branch deletion on `master` are blocked outright.**
 - **Conventional Commits.** `feat:`, `fix:`, `docs:`, `refactor:`, `test:`,
   `chore:`, `build:`, `ci:`. Enforced by commitlint on `commit-msg`.
 - **Read [CLAUDE.md](./CLAUDE.md) first.** It is the enforceable rulebook —
