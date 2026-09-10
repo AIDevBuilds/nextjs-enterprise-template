@@ -391,7 +391,7 @@ guards this.
   `coverageThreshold` set.
 - ESLint `next/core-web-vitals` + `next/typescript` + `prettier`;
   `no-process-env` on. Prettier + `prettier-plugin-tailwindcss`. Husky
-  `pre-commit` (lint-staged) + `commit-msg` (commitlint). `.nvmrc` = Node 20.
+  `pre-commit` (lint-staged) + `commit-msg` (commitlint). `.nvmrc` = Node 22 (LTS); `engines` requires >= 20.9.0, Next 16's floor.
 
 ---
 
