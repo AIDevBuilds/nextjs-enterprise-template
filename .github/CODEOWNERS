@@ -1,0 +1,12 @@
+# Every change needs a review from the maintainer.
+*                       @AIDevBuilds
+
+# Architecture and the rules coding tools follow — review these especially carefully.
+/ARCHITECTURE.md        @AIDevBuilds
+/CLAUDE.md              @AIDevBuilds
+
+# Security-critical surface.
+/src/shared/lib/auth/   @AIDevBuilds
+/src/app/api/           @AIDevBuilds
+/src/middleware.ts      @AIDevBuilds
+/next.config.ts         @AIDevBuilds

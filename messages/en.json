@@ -1,0 +1,154 @@
+{
+  "common": {
+    "actions": {
+      "create": "Create",
+      "save": "Save changes",
+      "cancel": "Cancel",
+      "edit": "Edit",
+      "delete": "Delete",
+      "reset": "Reset",
+      "tryAgain": "Try again",
+      "backHome": "Back home",
+      "signIn": "Sign in",
+      "signOut": "Sign out",
+      "signUp": "Sign up",
+      "createAccount": "Create account"
+    },
+    "states": {
+      "loading": "Loading",
+      "all": "All"
+    },
+    "fields": {
+      "email": "Email",
+      "password": "Password",
+      "fullName": "Full name",
+      "title": "Title",
+      "description": "Description",
+      "status": "Status",
+      "priority": "Priority",
+      "project": "Project",
+      "dueDate": "Due date",
+      "assignee": "Assignee",
+      "actions": "Actions"
+    },
+    "placeholders": {
+      "email": "you@example.com",
+      "password": "••••••••",
+      "optionalDescription": "Optional description"
+    }
+  },
+  "theme": {
+    "label": "Colour theme",
+    "light": "Light",
+    "dark": "Dark",
+    "system": "System"
+  },
+  "locale": {
+    "label": "Language"
+  },
+  "nav": {
+    "tasks": "Tasks",
+    "projects": "Projects",
+    "toggle": "Toggle navigation"
+  },
+  "auth": {
+    "signInSubtitle": "Sign in to your account",
+    "registerSubtitle": "Create your account",
+    "noAccount": "Don't have an account?",
+    "haveAccount": "Already have an account?",
+    "passwordHint": "Minimum 8 characters",
+    "namePlaceholder": "Alice Smith",
+    "loginFailed": "Login failed. Please try again.",
+    "registerFailed": "Registration failed. Please try again."
+  },
+  "tasks": {
+    "title": "Tasks",
+    "subtitle": "Manage and track your tasks",
+    "new": "+ New task",
+    "createTitle": "Create task",
+    "editTitle": "Edit task",
+    "createSubmit": "Create task",
+    "titlePlaceholder": "Enter task title",
+    "selectProject": "Select project…",
+    "empty": "No tasks found",
+    "emptyHint": "Create a task to get started.",
+    "confirmDelete": "Delete \"{title}\"?",
+    "showing": "Showing {count} of {total, plural, =1 {# task} other {# tasks}}",
+    "editAria": "Edit task {title}",
+    "deleteAria": "Delete task {title}",
+    "created": "Task created",
+    "updated": "Task updated",
+    "deleted": "Task deleted",
+    "createFailed": "Failed to create task",
+    "updateFailed": "Failed to update task",
+    "deleteFailed": "Failed to delete task",
+    "status": {
+      "TODO": "To Do",
+      "IN_PROGRESS": "In Progress",
+      "DONE": "Done"
+    },
+    "priority": {
+      "LOW": "Low",
+      "MEDIUM": "Medium",
+      "HIGH": "High"
+    },
+    "due": "Due {date}"
+  },
+  "projects": {
+    "title": "Projects",
+    "subtitle": "Organise your work into projects",
+    "new": "+ New project",
+    "createTitle": "Create project",
+    "editTitle": "Edit project",
+    "createSubmit": "Create project",
+    "namePlaceholder": "My awesome project",
+    "nameLabel": "Project name",
+    "empty": "No projects yet",
+    "emptyHint": "Create a project to organise your tasks.",
+    "confirmDelete": "Delete \"{name}\"? This will fail if the project has tasks.",
+    "editAria": "Edit project {name}",
+    "deleteAria": "Delete project {name}",
+    "taskCount": "{count, plural, =1 {# task} other {# tasks}}",
+    "createdAt": "Created {relative}",
+    "created": "Project created",
+    "updated": "Project updated",
+    "deleted": "Project deleted",
+    "createFailed": "Failed to create project",
+    "updateFailed": "Failed to update project",
+    "deleteFailed": "Failed to delete project"
+  },
+  "errors": {
+    "genericTitle": "Something went wrong",
+    "genericBody": "An unexpected error occurred. Try again, and if the problem persists contact support.",
+    "sectionTitle": "This section failed to load",
+    "sectionBody": "Try again or reload the page.",
+    "boundaryTitle": "This section could not be displayed",
+    "boundaryBody": "The rest of the page is still usable. Try again, or reload if it keeps happening.",
+    "appTitle": "Application error",
+    "appBody": "The application failed to load. Please refresh the page.",
+    "notFoundTitle": "Page not found",
+    "notFoundBody": "The page you are looking for does not exist or has moved.",
+    "forbiddenTitle": "You don't have access",
+    "forbiddenBody": "Your account doesn't have permission to view this. Ask an administrator if you think this is a mistake.",
+    "forbiddenRequired": "Required: {permission}.",
+    "backToTasks": "Back to tasks",
+    "unexpected": "Something went wrong",
+    "tooManyRequests": "Too many attempts. Try again shortly.",
+    "tryAgain": "Try again",
+    "notFoundCode": "404",
+    "forbiddenCode": "403"
+  },
+  "modal": {
+    "close": "Close dialog",
+    "fallbackLabel": "Dialog"
+  },
+  "validation": {
+    "emailInvalid": "Must be a valid email address",
+    "passwordRequired": "Password is required",
+    "nameMin": "Name must be at least 2 characters",
+    "passwordMin": "Password must be at least 8 characters",
+    "titleRequired": "Title is required",
+    "projectRequired": "Project is required",
+    "nameRequired": "Name is required"
+  }
+}

@@ -1,0 +1,26 @@
+version: 2
+updates:
+  - package-ecosystem: npm
+    directory: /
+    schedule:
+      interval: weekly
+    open-pull-requests-limit: 10
+    groups:
+      # One PR per ecosystem instead of a flood of individual bumps.
+      next:
+        patterns: ['next', 'eslint-config-next', '@next/*']
+      react:
+        patterns: ['react', 'react-dom', '@types/react', '@types/react-dom']
+      testing:
+        patterns: ['jest*', '@testing-library/*', '@playwright/*', 'msw', '@types/jest']
+      lint:
+        patterns: ['eslint*', 'prettier*', 'husky', 'lint-staged', '@commitlint/*']
+      minor-and-patch:
+        update-types: ['minor', 'patch']
+    labels: ['dependencies']
+
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: monthly
+    labels: ['dependencies']

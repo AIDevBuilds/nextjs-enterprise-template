@@ -1,0 +1,155 @@
+{
+  "_note": "Sample second locale to prove the i18n plumbing. Have a native speaker review before shipping.",
+  "common": {
+    "actions": {
+      "create": "बनाएँ",
+      "save": "परिवर्तन सहेजें",
+      "cancel": "रद्द करें",
+      "edit": "संपादित करें",
+      "delete": "हटाएँ",
+      "reset": "रीसेट करें",
+      "tryAgain": "पुनः प्रयास करें",
+      "backHome": "होम पर लौटें",
+      "signIn": "साइन इन करें",
+      "signOut": "साइन आउट करें",
+      "signUp": "साइन अप करें",
+      "createAccount": "खाता बनाएँ"
+    },
+    "states": {
+      "loading": "लोड हो रहा है",
+      "all": "सभी"
+    },
+    "fields": {
+      "email": "ईमेल",
+      "password": "पासवर्ड",
+      "fullName": "पूरा नाम",
+      "title": "शीर्षक",
+      "description": "विवरण",
+      "status": "स्थिति",
+      "priority": "प्राथमिकता",
+      "project": "प्रोजेक्ट",
+      "dueDate": "नियत तिथि",
+      "assignee": "सौंपा गया",
+      "actions": "कार्रवाइयाँ"
+    },
+    "placeholders": {
+      "email": "you@example.com",
+      "password": "••••••••",
+      "optionalDescription": "वैकल्पिक विवरण"
+    }
+  },
+  "theme": {
+    "label": "रंग थीम",
+    "light": "हल्का",
+    "dark": "गहरा",
+    "system": "सिस्टम"
+  },
+  "locale": {
+    "label": "भाषा"
+  },
+  "nav": {
+    "tasks": "कार्य",
+    "projects": "प्रोजेक्ट",
+    "toggle": "नेविगेशन टॉगल करें"
+  },
+  "auth": {
+    "signInSubtitle": "अपने खाते में साइन इन करें",
+    "registerSubtitle": "अपना खाता बनाएँ",
+    "noAccount": "खाता नहीं है?",
+    "haveAccount": "पहले से खाता है?",
+    "passwordHint": "कम से कम 8 अक्षर",
+    "namePlaceholder": "एलिस स्मिथ",
+    "loginFailed": "साइन इन विफल रहा। कृपया पुनः प्रयास करें।",
+    "registerFailed": "पंजीकरण विफल रहा। कृपया पुनः प्रयास करें।"
+  },
+  "tasks": {
+    "title": "कार्य",
+    "subtitle": "अपने कार्यों को प्रबंधित और ट्रैक करें",
+    "new": "+ नया कार्य",
+    "createTitle": "कार्य बनाएँ",
+    "editTitle": "कार्य संपादित करें",
+    "createSubmit": "कार्य बनाएँ",
+    "titlePlaceholder": "कार्य का शीर्षक दर्ज करें",
+    "selectProject": "प्रोजेक्ट चुनें…",
+    "empty": "कोई कार्य नहीं मिला",
+    "emptyHint": "आरंभ करने के लिए एक कार्य बनाएँ।",
+    "confirmDelete": "\"{title}\" हटाएँ?",
+    "showing": "{total, plural, other {# में से}} {count} दिखाए जा रहे हैं",
+    "editAria": "कार्य {title} संपादित करें",
+    "deleteAria": "कार्य {title} हटाएँ",
+    "created": "कार्य बनाया गया",
+    "updated": "कार्य अपडेट हुआ",
+    "deleted": "कार्य हटाया गया",
+    "createFailed": "कार्य बनाने में विफल",
+    "updateFailed": "कार्य अपडेट करने में विफल",
+    "deleteFailed": "कार्य हटाने में विफल",
+    "status": {
+      "TODO": "करना है",
+      "IN_PROGRESS": "प्रगति में",
+      "DONE": "पूर्ण"
+    },
+    "priority": {
+      "LOW": "कम",
+      "MEDIUM": "मध्यम",
+      "HIGH": "उच्च"
+    },
+    "due": "नियत {date}"
+  },
+  "projects": {
+    "title": "प्रोजेक्ट",
+    "subtitle": "अपने काम को प्रोजेक्ट में व्यवस्थित करें",
+    "new": "+ नया प्रोजेक्ट",
+    "createTitle": "प्रोजेक्ट बनाएँ",
+    "editTitle": "प्रोजेक्ट संपादित करें",
+    "createSubmit": "प्रोजेक्ट बनाएँ",
+    "namePlaceholder": "मेरा शानदार प्रोजेक्ट",
+    "nameLabel": "प्रोजेक्ट का नाम",
+    "empty": "अभी कोई प्रोजेक्ट नहीं",
+    "emptyHint": "अपने कार्य व्यवस्थित करने के लिए एक प्रोजेक्ट बनाएँ।",
+    "confirmDelete": "\"{name}\" हटाएँ? यदि प्रोजेक्ट में कार्य हैं तो यह विफल होगा।",
+    "editAria": "प्रोजेक्ट {name} संपादित करें",
+    "deleteAria": "प्रोजेक्ट {name} हटाएँ",
+    "taskCount": "{count, plural, other {# कार्य}}",
+    "createdAt": "{relative} बनाया गया",
+    "created": "प्रोजेक्ट बनाया गया",
+    "updated": "प्रोजेक्ट अपडेट हुआ",
+    "deleted": "प्रोजेक्ट हटाया गया",
+    "createFailed": "प्रोजेक्ट बनाने में विफल",
+    "updateFailed": "प्रोजेक्ट अपडेट करने में विफल",
+    "deleteFailed": "प्रोजेक्ट हटाने में विफल"
+  },
+  "errors": {
+    "genericTitle": "कुछ गलत हो गया",
+    "genericBody": "एक अनपेक्षित त्रुटि हुई। पुनः प्रयास करें, और समस्या बनी रहे तो सहायता से संपर्क करें।",
+    "sectionTitle": "यह अनुभाग लोड नहीं हो सका",
+    "sectionBody": "पुनः प्रयास करें या पृष्ठ फिर से लोड करें।",
+    "boundaryTitle": "यह अनुभाग प्रदर्शित नहीं किया जा सका",
+    "boundaryBody": "बाकी पृष्ठ अब भी उपयोग योग्य है। पुनः प्रयास करें, या बार-बार हो तो पृष्ठ फिर से लोड करें।",
+    "appTitle": "एप्लिकेशन त्रुटि",
+    "appBody": "एप्लिकेशन लोड नहीं हो सका। कृपया पृष्ठ फिर से लोड करें।",
+    "notFoundTitle": "पृष्ठ नहीं मिला",
+    "notFoundBody": "आप जो पृष्ठ खोज रहे हैं वह मौजूद नहीं है या स्थानांतरित हो गया है।",
+    "forbiddenTitle": "आपके पास पहुँच नहीं है",
+    "forbiddenBody": "आपके खाते को इसे देखने की अनुमति नहीं है। यदि आपको लगता है कि यह गलती है तो व्यवस्थापक से संपर्क करें।",
+    "forbiddenRequired": "आवश्यक: {permission}।",
+    "backToTasks": "कार्यों पर लौटें",
+    "unexpected": "कुछ गलत हो गया",
+    "tooManyRequests": "बहुत अधिक प्रयास। कृपया कुछ देर बाद पुनः प्रयास करें।",
+    "tryAgain": "पुनः प्रयास करें",
+    "notFoundCode": "404",
+    "forbiddenCode": "403"
+  },
+  "modal": {
+    "close": "संवाद बंद करें",
+    "fallbackLabel": "संवाद"
+  },
+  "validation": {
+    "emailInvalid": "मान्य ईमेल पता होना चाहिए",
+    "passwordRequired": "पासवर्ड आवश्यक है",
+    "nameMin": "नाम कम से कम 2 अक्षर का होना चाहिए",
+    "passwordMin": "पासवर्ड कम से कम 8 अक्षर का होना चाहिए",
+    "titleRequired": "शीर्षक आवश्यक है",
+    "projectRequired": "प्रोजेक्ट आवश्यक है",
+    "nameRequired": "नाम आवश्यक है"
+  }
+}

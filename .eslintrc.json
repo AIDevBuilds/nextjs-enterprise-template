@@ -1,0 +1,51 @@
+{
+  "$schema": "https://json.schemastore.org/eslintrc",
+  "root": true,
+  "extends": ["next/core-web-vitals", "next/typescript", "prettier"],
+  "rules": {
+    "no-process-env": "error",
+    "@typescript-eslint/no-unused-vars": [
+      "error",
+      {
+        "argsIgnorePattern": "^_",
+        "varsIgnorePattern": "^_"
+      }
+    ],
+    "react/jsx-no-literals": [
+      "error",
+      {
+        "noStrings": true,
+        "ignoreProps": true,
+        "allowedStrings": [":", "\u00b7", "\u2014", "|", "/", "+", "-", "(", ")", "%", "*"]
+      }
+    ]
+  },
+  "overrides": [
+    {
+      "files": [
+        "src/env.ts",
+        "src/shared/lib/auth/cookie-config.ts",
+        "src/shared/lib/observability/logger.ts",
+        "src/i18n/request.ts"
+      ],
+      "rules": {
+        "no-process-env": "off"
+      }
+    },
+    {
+      "files": ["tests/**/*", "*.config.ts", "*.config.js", "*.config.mjs"],
+      "rules": {
+        "no-process-env": "off",
+        "react/display-name": "off",
+        "react-hooks/rules-of-hooks": "off",
+        "react/jsx-no-literals": "off"
+      }
+    },
+    {
+      "files": ["src/app/global-error.tsx"],
+      "rules": {
+        "react/jsx-no-literals": "off"
+      }
+    }
+  ]
+}
