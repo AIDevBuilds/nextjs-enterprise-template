@@ -40,7 +40,6 @@ export function serializeError(error: unknown): SerializedError {
 export const consoleTransport: LogTransport = (record) => {
   if (record.runtime === 'browser') {
     const method = record.level === 'error' ? 'error' : record.level === 'warn' ? 'warn' : 'log';
-    // eslint-disable-next-line no-console
     console[method](`[${record.level}] ${record.message}`, {
       ...record.context,
       ...(record.error ? { error: record.error } : {}),
@@ -48,7 +47,6 @@ export const consoleTransport: LogTransport = (record) => {
     return;
   }
   // One JSON object per line — the format log aggregators expect.
-  // eslint-disable-next-line no-console
   console[record.level === 'error' ? 'error' : 'log'](JSON.stringify(record));
 };
 
