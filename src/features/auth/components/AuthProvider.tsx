@@ -1,6 +1,6 @@
 'use client';
 
-import { useRef, type ReactNode } from 'react';
+import { useState, type ReactNode } from 'react';
 import { useAuthStore } from '@/features/auth/store/authStore';
 import type { AuthUser } from '@/features/auth/types';
 
@@ -15,10 +15,13 @@ interface AuthProviderProps {
  * flash on first paint.
  */
 export function AuthProvider({ initialUser, children }: AuthProviderProps) {
-  const hydrated = useRef(false);
-  if (!hydrated.current) {
+  // A useState initializer runs exactly once per instance, before children
+  // render — so the store is seeded with no logged-out flash and without
+  // reading a ref during render (which React 19's compiler rules reject).
+  useState(() => {
     useAuthStore.setState({ user: initialUser, isAuthenticated: Boolean(initialUser) });
-    hydrated.current = true;
-  }
+    return null;
+  });
+
   return <>{children}</>;
 }

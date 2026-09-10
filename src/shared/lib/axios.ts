@@ -27,6 +27,11 @@ apiClient.interceptors.response.use(
       const onAuthPage = ['/login', '/register'].some((p) => pathname.startsWith(p));
 
       if (!isAuthEndpoint && !onAuthPage) {
+        // A hard navigation is deliberate: the session is gone, so the whole
+        // client tree and every cache should be torn down, not soft-routed.
+        // This runs inside an axios interceptor, outside React — `useRouter()`
+        // and `redirect()` are both unavailable here.
+        // eslint-disable-next-line @next/next/no-location-assign-relative-destination
         window.location.href = `/login?next=${encodeURIComponent(pathname)}`;
       }
     }

@@ -1,7 +1,7 @@
 'use client';
 
 import { useTranslations } from 'next-intl';
-import { useTheme, type Theme } from '@/shared/lib/theme/ThemeProvider';
+import { useTheme, type Theme } from '@/shared/lib/theme/theme';
 import { cn } from '@/shared/utils/cn';
 
 const OPTIONS: { value: Theme; labelKey: 'light' | 'system' | 'dark'; icon: React.ReactNode }[] = [

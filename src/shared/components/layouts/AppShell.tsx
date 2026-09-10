@@ -10,11 +10,20 @@ import { Sidebar } from './Sidebar';
  * Sidebar is fixed from `lg` up and an off-canvas drawer below it.
  */
 export function AppShell({ children }: { children: ReactNode }) {
-  const [isNavOpen, setIsNavOpen] = useState(false);
   const pathname = usePathname();
+  const [nav, setNav] = useState({ open: false, path: pathname });
 
-  // Close the drawer on navigation.
-  useEffect(() => setIsNavOpen(false), [pathname]);
+  // Close the drawer when the route changes. Adjusting state during render is
+  // React's recommended alternative to a setState-in-effect cascade: it happens
+  // before children render, so there is no extra commit.
+  if (nav.path !== pathname) setNav({ open: false, path: pathname });
+
+  const isNavOpen = nav.open;
+  const setIsNavOpen = (updater: boolean | ((open: boolean) => boolean)) =>
+    setNav((state) => ({
+      ...state,
+      open: typeof updater === 'function' ? updater(state.open) : updater,
+    }));
 
   useEffect(() => {
     if (!isNavOpen) return;

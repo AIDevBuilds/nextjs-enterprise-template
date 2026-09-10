@@ -3,7 +3,7 @@ import { Inter } from 'next/font/google';
 import { NextIntlClientProvider } from 'next-intl';
 import { getLocale } from 'next-intl/server';
 import { env } from '@/env';
-import { THEME_INIT_SCRIPT } from '@/shared/lib/theme/ThemeProvider';
+import { THEME_INIT_SCRIPT } from '@/shared/lib/theme/theme';
 import './globals.css';
 import { Providers } from './providers';
 
