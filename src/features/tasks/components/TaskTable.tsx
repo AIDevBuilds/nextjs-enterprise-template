@@ -34,7 +34,7 @@ export function TaskTable({ tasks, isLoading, onEdit, onDelete }: TaskTableProps
   }
 
   return (
-    <div className="overflow-hidden rounded-lg border border-border bg-card shadow-sm">
+    <div className="overflow-hidden rounded-lg border border-border bg-card shadow-xs">
       <table className="min-w-full divide-y divide-border">
         <thead className="bg-muted">
           <tr>

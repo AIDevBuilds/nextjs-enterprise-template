@@ -18,7 +18,7 @@ export function TaskFiltersBar() {
           id="status-filter"
           value={filters.status ?? ''}
           onChange={(e) => setFilters({ status: e.target.value as typeof filters.status })}
-          className="rounded-md border border-border px-2 py-1.5 text-sm focus:border-ring focus:outline-none focus:ring-1 focus:ring-ring"
+          className="rounded-md border border-border px-2 py-1.5 text-sm focus:border-ring focus:outline-hidden focus:ring-1 focus:ring-ring"
         >
           <option value="">{t('common.states.all')}</option>
           <option value="TODO">{t('tasks.status.TODO')}</option>
@@ -35,7 +35,7 @@ export function TaskFiltersBar() {
           id="priority-filter"
           value={filters.priority ?? ''}
           onChange={(e) => setFilters({ priority: e.target.value as typeof filters.priority })}
-          className="rounded-md border border-border px-2 py-1.5 text-sm focus:border-ring focus:outline-none focus:ring-1 focus:ring-ring"
+          className="rounded-md border border-border px-2 py-1.5 text-sm focus:border-ring focus:outline-hidden focus:ring-1 focus:ring-ring"
         >
           <option value="">{t('common.states.all')}</option>
           <option value="LOW">{t('tasks.priority.LOW')}</option>
