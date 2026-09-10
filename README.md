@@ -1,12 +1,13 @@
 # Next.js Base Template
 
-Opinionated, enterprise-grade starting point for Next.js 15 (App Router) apps.
+Opinionated, enterprise-grade starting point for Next.js 16 (App Router) apps.
 
 - **Feature-sliced** architecture — vertical `features/*` slices over a
   domain-agnostic `shared/` layer.
 - **httpOnly-cookie auth** via a Backend-for-Frontend proxy — the access token
   never touches client JavaScript.
-- **TanStack Query** for server state, **Zustand** for UI state, **Zod** for
+- **React 19 + Tailwind CSS 4** (CSS-first `@theme` tokens, light/dark).
+- **TanStack Query** for server state, **Zustand** for UI state, **Zod 4** for
   forms and environment validation.
 - Wired: ESLint + Prettier + Husky + commitlint, Jest + Testing Library + MSW,
   Playwright (no backend needed), GitHub Actions CI, standalone Dockerfile,
@@ -53,4 +54,3 @@ and has an approving review. See [CONTRIBUTING.md](./CONTRIBUTING.md).
 4. When you build something reusable in a child project, flag it under
    **“⬆️ Candidate for the base template”** (see `CLAUDE.md §9`) so it can be
    folded back in here.
-

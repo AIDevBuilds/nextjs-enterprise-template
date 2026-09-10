@@ -10,11 +10,11 @@ interface PageWrapperProps {
 export function PageWrapper({ title, description, action, children }: PageWrapperProps) {
   return (
     <div className="flex h-full flex-col">
-      <header className="border-b border-border bg-card px-6 py-4">
+      <header className="border-border bg-card border-b px-6 py-4">
         <div className="flex items-center justify-between">
           <div>
-            <h1 className="text-2xl font-bold text-foreground">{title}</h1>
-            {description && <p className="mt-1 text-sm text-muted-foreground">{description}</p>}
+            <h1 className="text-foreground text-2xl font-bold">{title}</h1>
+            {description && <p className="text-muted-foreground mt-1 text-sm">{description}</p>}
           </div>
           {action && <div>{action}</div>}
         </div>

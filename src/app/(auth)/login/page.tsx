@@ -9,7 +9,7 @@ export default async function LoginPage() {
 
   return (
     <>
-      <p className="mb-6 text-center text-sm text-muted-foreground">{t('signInSubtitle')}</p>
+      <p className="text-muted-foreground mb-6 text-center text-sm">{t('signInSubtitle')}</p>
       <LoginForm />
     </>
   );

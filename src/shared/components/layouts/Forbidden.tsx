@@ -13,9 +13,9 @@ export function Forbidden({ requiredPermission }: ForbiddenProps) {
 
   return (
     <div className="flex h-full flex-col items-center justify-center gap-3 p-6 text-center">
-      <p className="text-5xl font-bold text-muted-foreground">{t('errors.forbiddenCode')}</p>
-      <h1 className="text-xl font-semibold text-foreground">{t('errors.forbiddenTitle')}</h1>
-      <p className="max-w-md text-sm text-muted-foreground">
+      <p className="text-muted-foreground text-5xl font-bold">{t('errors.forbiddenCode')}</p>
+      <h1 className="text-foreground text-xl font-semibold">{t('errors.forbiddenTitle')}</h1>
+      <p className="text-muted-foreground max-w-md text-sm">
         {t('errors.forbiddenBody')}
         {requiredPermission ? (
           <> {t('errors.forbiddenRequired', { permission: requiredPermission })}</>

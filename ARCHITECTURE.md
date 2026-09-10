@@ -14,25 +14,25 @@ your product's features; keep the structure.
 
 ## 1. Stack
 
-| Concern              | Choice                                                                 | Notes                                                                     |
-| -------------------- | ---------------------------------------------------------------------- | ------------------------------------------------------------------------- |
-| Framework            | Next.js 15 App Router, `output: 'standalone'`                          | RSC-capable; feature UI is mostly client components                       |
-| Language             | TypeScript `strict`                                                    | `@/*`→`src/*`, `@tests/*`→`tests/*`                                       |
-| UI runtime           | React 18                                                               |                                                                           |
-| Server state         | TanStack Query v5                                                      | all remote data; never in Zustand                                         |
-| Client/UI state      | Zustand v4                                                             | filters, selection, session user (not persisted)                          |
-| Transport            | axios instance, `baseURL: '/api'`                                      | talks to the same-origin BFF only                                         |
-| Auth                 | httpOnly Secure cookie + BFF proxy                                     | token never reaches JS — see §4                                           |
-| Env                  | `src/env.ts`, Zod-validated                                            | single source; `process.env` banned elsewhere                             |
-| Forms                | react-hook-form + Zod resolver                                         | schema = source of truth for types                                        |
-| Styling              | Tailwind v3 + `cn()` (clsx + tailwind-merge)                           |                                                                           |
-| Notifications        | react-hot-toast                                                        | mounted once in `providers.tsx`                                           |
-| Unit/component tests | Jest + Testing Library + MSW (node)                                    | `tests/unit/**`                                                           |
-| E2E                  | Playwright                                                             | `tests/e2e/**`, stubs `/api/**` — no backend needed                       |
-| Tooling              | ESLint (`next` + `prettier`), Prettier, Husky, lint-staged, commitlint |                                                                           |
-| CI                   | GitHub Actions                                                         | type-check · lint · test · build · e2e                                    |
-| Container            | multi-stage `Dockerfile` (standalone)                                  |                                                                           |
-| Typed routes         | **off**                                                                | experimental; forces `as Route` casts on nav arrays and dynamic redirects |
+| Concern              | Choice                                                            | Notes                                                                     |
+| -------------------- | ----------------------------------------------------------------- | ------------------------------------------------------------------------- |
+| Framework            | Next.js 16 App Router, `output: 'standalone'`                     | RSC-capable; feature UI is mostly client components                       |
+| Language             | TypeScript 6 `strict`                                             | `@/*`→`src/*`, `@tests/*`→`tests/*`                                       |
+| UI runtime           | React 19                                                          |                                                                           |
+| Server state         | TanStack Query v5                                                 | all remote data; never in Zustand                                         |
+| Client/UI state      | Zustand v5                                                        | filters, selection, session user (not persisted)                          |
+| Transport            | axios instance, `baseURL: '/api'`                                 | talks to the same-origin BFF only                                         |
+| Auth                 | httpOnly Secure cookie + BFF proxy                                | token never reaches JS — see §4                                           |
+| Env                  | `src/env.ts`, Zod-validated                                       | single source; `process.env` banned elsewhere                             |
+| Forms                | react-hook-form + Zod resolver                                    | schema = source of truth for types                                        |
+| Styling              | Tailwind CSS v4 (CSS-first `@theme`) + `cn()` (tailwind-merge v3) |                                                                           |
+| Notifications        | react-hot-toast                                                   | mounted once in `providers.tsx`                                           |
+| Unit/component tests | Jest + Testing Library + MSW (node)                               | `tests/unit/**`                                                           |
+| E2E                  | Playwright                                                        | `tests/e2e/**`, stubs `/api/**` — no backend needed                       |
+| Tooling              | ESLint 9 flat config, Prettier, Husky, lint-staged, commitlint    |                                                                           |
+| CI                   | GitHub Actions                                                    | type-check · lint · test · build · e2e                                    |
+| Container            | multi-stage `Dockerfile` (standalone)                             |                                                                           |
+| Typed routes         | **off**                                                           | experimental; forces `as Route` casts on nav arrays and dynamic redirects |
 
 ---
 
@@ -86,7 +86,7 @@ src/
         types.ts              # LogRecord / LogTransport contracts
         WebVitalsReporter.tsx # Core Web Vitals → logger
       theme/
-        ThemeProvider.tsx     # light/dark/system + no-FOUC init script
+        theme.ts              # light/dark/system store + no-FOUC init script
     types/index.ts            # domain entities + ApiResponse/PaginatedResponse/ApiError
     utils/                    # validators.ts (Zod), formatters.ts, cn.ts, api-error.ts
 
@@ -353,7 +353,31 @@ Sidebar entry → tests (unit mirror + MSW handlers + e2e spec).
 
 ---
 
-## 9. Configuration
+## 9. Dependency pinning — latest is not always compatible
+
+Two ceilings are deliberate. Raising either breaks the build, so verify before
+bumping:
+
+- **ESLint stays on 9.x.** `eslint-config-next@16` bundles an
+  `eslint-plugin-react` that calls `context.getFilename()`, removed in ESLint 10.
+  Upgrading throws `getFilename is not a function` on every lint run.
+- **TypeScript stays on 6.x.** `typescript-eslint@8`, also bundled in
+  `eslint-config-next@16`, declares `typescript >=4.8.4 <6.1.0`. TypeScript 7
+  type-checks fine on its own but makes `eslint-config-next` throw at require
+  time, so linting stops working entirely.
+
+`npm outdated` will keep offering ESLint 10 and TypeScript 7. Before accepting
+either, run `npm ls --all | grep invalid` — if it reports anything, the
+toolchain does not support it yet.
+
+Also pinned for correctness: **tailwind-merge must be v3+**. v2 predates
+Tailwind 4's renamed utilities (`shadow-xs`, `outline-hidden`) and would fail to
+dedupe them, silently letting the wrong class win. `tests/unit/shared/utils/cn.test.ts`
+guards this.
+
+---
+
+## 10. Configuration
 
 - `tsconfig.json` — `strict`, `noEmit`, `moduleResolution: bundler`, path
   aliases.
@@ -371,7 +395,7 @@ Sidebar entry → tests (unit mirror + MSW handlers + e2e spec).
 
 ---
 
-## 10. Remaining hardening (not yet in the template)
+## 11. Remaining hardening (not yet in the template)
 
 Deliberately left for the product to decide/own:
 
@@ -394,7 +418,7 @@ Deliberately left for the product to decide/own:
 
 ---
 
-## 11. One-line summary
+## 12. One-line summary
 
 > Feature-sliced Next.js App Router template: thin routing layer, a
 > Backend-for-Frontend that keeps the auth token in an httpOnly cookie, vertical

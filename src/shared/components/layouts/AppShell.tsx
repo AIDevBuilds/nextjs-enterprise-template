@@ -33,7 +33,7 @@ export function AppShell({ children }: { children: ReactNode }) {
   }, [isNavOpen]);
 
   return (
-    <div className="flex h-screen overflow-hidden bg-muted">
+    <div className="bg-muted flex h-screen overflow-hidden">
       {/* Mobile overlay */}
       <div
         aria-hidden="true"
@@ -55,13 +55,13 @@ export function AppShell({ children }: { children: ReactNode }) {
 
       <div className="flex min-w-0 flex-1 flex-col">
         {/* Plain div, not <header>: PageWrapper already owns the banner landmark. */}
-        <div className="flex h-14 shrink-0 items-center gap-3 border-b border-border bg-card px-4 lg:hidden">
+        <div className="border-border bg-card flex h-14 shrink-0 items-center gap-3 border-b px-4 lg:hidden">
           <button
             type="button"
             onClick={() => setIsNavOpen((open) => !open)}
             aria-label="Toggle navigation"
             aria-expanded={isNavOpen}
-            className="rounded-md p-2 text-muted-foreground hover:bg-accent hover:text-foreground"
+            className="text-muted-foreground hover:bg-accent hover:text-foreground rounded-md p-2"
           >
             <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path

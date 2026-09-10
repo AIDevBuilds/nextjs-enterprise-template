@@ -13,18 +13,18 @@ interface ProjectCardProps {
 export function ProjectCard({ project, taskCount, onEdit, onDelete }: ProjectCardProps) {
   const t = useTranslations();
   return (
-    <article className="rounded-xl border border-border bg-card p-5 shadow-xs transition-shadow hover:shadow-md">
+    <article className="border-border bg-card rounded-xl border p-5 shadow-xs transition-shadow hover:shadow-md">
       <div className="flex items-start justify-between gap-2">
         <div className="min-w-0 flex-1">
-          <h3 className="truncate text-base font-semibold text-foreground">{project.name}</h3>
+          <h3 className="text-foreground truncate text-base font-semibold">{project.name}</h3>
           {project.description && (
-            <p className="mt-1 line-clamp-2 text-sm text-muted-foreground">{project.description}</p>
+            <p className="text-muted-foreground mt-1 line-clamp-2 text-sm">{project.description}</p>
           )}
         </div>
       </div>
 
       <div className="mt-4 flex items-center justify-between">
-        <div className="flex items-center gap-4 text-xs text-muted-foreground">
+        <div className="text-muted-foreground flex items-center gap-4 text-xs">
           {taskCount !== undefined && (
             <span className="flex items-center gap-1">
               <svg className="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">

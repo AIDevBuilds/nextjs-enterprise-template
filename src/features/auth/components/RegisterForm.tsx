@@ -53,7 +53,7 @@ export function RegisterForm() {
       />
 
       {isError && apiErrorMessage && (
-        <p role="alert" className="text-sm text-danger">
+        <p role="alert" className="text-danger text-sm">
           {apiErrorMessage}
         </p>
       )}
@@ -62,9 +62,9 @@ export function RegisterForm() {
         {t('common.actions.createAccount')}
       </Button>
 
-      <p className="text-center text-sm text-muted-foreground">
+      <p className="text-muted-foreground text-center text-sm">
         {t('auth.haveAccount')}{' '}
-        <Link href="/login" className="font-medium text-primary hover:underline">
+        <Link href="/login" className="text-primary font-medium hover:underline">
           {t('common.actions.signIn')}
         </Link>
       </p>

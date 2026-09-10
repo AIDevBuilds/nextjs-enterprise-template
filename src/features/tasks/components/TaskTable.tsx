@@ -26,7 +26,7 @@ export function TaskTable({ tasks, isLoading, onEdit, onDelete }: TaskTableProps
 
   if (tasks.length === 0) {
     return (
-      <div className="flex h-48 flex-col items-center justify-center text-muted-foreground">
+      <div className="text-muted-foreground flex h-48 flex-col items-center justify-center">
         <p className="text-lg font-medium">{t('tasks.empty')}</p>
         <p className="text-sm">{t('tasks.emptyHint')}</p>
       </div>
@@ -34,8 +34,8 @@ export function TaskTable({ tasks, isLoading, onEdit, onDelete }: TaskTableProps
   }
 
   return (
-    <div className="overflow-hidden rounded-lg border border-border bg-card shadow-xs">
-      <table className="min-w-full divide-y divide-border">
+    <div className="border-border bg-card overflow-hidden rounded-lg border shadow-xs">
+      <table className="divide-border min-w-full divide-y">
         <thead className="bg-muted">
           <tr>
             {(
@@ -50,20 +50,20 @@ export function TaskTable({ tasks, isLoading, onEdit, onDelete }: TaskTableProps
             ).map((col) => (
               <th
                 key={col}
-                className="px-4 py-3 text-left text-xs font-medium uppercase tracking-wide text-muted-foreground"
+                className="text-muted-foreground px-4 py-3 text-left text-xs font-medium tracking-wide uppercase"
               >
                 {t(col)}
               </th>
             ))}
           </tr>
         </thead>
-        <tbody className="divide-y divide-border bg-card">
+        <tbody className="divide-border bg-card divide-y">
           {tasks.map((task) => (
             <tr key={task.id} className="hover:bg-accent">
               <td className="max-w-xs px-4 py-3">
-                <p className="truncate font-medium text-foreground">{task.title}</p>
+                <p className="text-foreground truncate font-medium">{task.title}</p>
                 {task.description && (
-                  <p className="truncate text-xs text-muted-foreground">{task.description}</p>
+                  <p className="text-muted-foreground truncate text-xs">{task.description}</p>
                 )}
               </td>
               <td className="px-4 py-3">
@@ -72,10 +72,10 @@ export function TaskTable({ tasks, isLoading, onEdit, onDelete }: TaskTableProps
               <td className="px-4 py-3">
                 <Badge priority={task.priority}>{t(`tasks.priority.${task.priority}`)}</Badge>
               </td>
-              <td className="px-4 py-3 text-sm text-muted-foreground">
+              <td className="text-muted-foreground px-4 py-3 text-sm">
                 {formatDate(task.dueDate)}
               </td>
-              <td className="px-4 py-3 text-sm text-muted-foreground">
+              <td className="text-muted-foreground px-4 py-3 text-sm">
                 {task.assigneeId ? task.assigneeId.slice(0, 8) + '…' : EMPTY_VALUE}
               </td>
               <td className="px-4 py-3">
