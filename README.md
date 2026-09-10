@@ -53,3 +53,4 @@ and has an approving review. See [CONTRIBUTING.md](./CONTRIBUTING.md).
 4. When you build something reusable in a child project, flag it under
    **“⬆️ Candidate for the base template”** (see `CLAUDE.md §9`) so it can be
    folded back in here.
+
