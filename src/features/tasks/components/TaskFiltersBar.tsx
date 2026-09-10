@@ -9,16 +9,16 @@ export function TaskFiltersBar() {
   const { filters, setFilters, resetFilters } = useTasksStore();
 
   return (
-    <div className="flex flex-wrap items-center gap-3 rounded-lg border border-border bg-card px-4 py-3">
+    <div className="border-border bg-card flex flex-wrap items-center gap-3 rounded-lg border px-4 py-3">
       <div className="flex items-center gap-2">
-        <label htmlFor="status-filter" className="text-sm font-medium text-foreground">
+        <label htmlFor="status-filter" className="text-foreground text-sm font-medium">
           {t('common.fields.status')}
         </label>
         <select
           id="status-filter"
           value={filters.status ?? ''}
           onChange={(e) => setFilters({ status: e.target.value as typeof filters.status })}
-          className="rounded-md border border-border px-2 py-1.5 text-sm focus:border-ring focus:outline-hidden focus:ring-1 focus:ring-ring"
+          className="border-border focus:border-ring focus:ring-ring rounded-md border px-2 py-1.5 text-sm focus:ring-1 focus:outline-hidden"
         >
           <option value="">{t('common.states.all')}</option>
           <option value="TODO">{t('tasks.status.TODO')}</option>
@@ -28,14 +28,14 @@ export function TaskFiltersBar() {
       </div>
 
       <div className="flex items-center gap-2">
-        <label htmlFor="priority-filter" className="text-sm font-medium text-foreground">
+        <label htmlFor="priority-filter" className="text-foreground text-sm font-medium">
           {t('common.fields.priority')}
         </label>
         <select
           id="priority-filter"
           value={filters.priority ?? ''}
           onChange={(e) => setFilters({ priority: e.target.value as typeof filters.priority })}
-          className="rounded-md border border-border px-2 py-1.5 text-sm focus:border-ring focus:outline-hidden focus:ring-1 focus:ring-ring"
+          className="border-border focus:border-ring focus:ring-ring rounded-md border px-2 py-1.5 text-sm focus:ring-1 focus:outline-hidden"
         >
           <option value="">{t('common.states.all')}</option>
           <option value="LOW">{t('tasks.priority.LOW')}</option>

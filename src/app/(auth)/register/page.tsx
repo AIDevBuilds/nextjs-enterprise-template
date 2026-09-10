@@ -9,7 +9,7 @@ export default async function RegisterPage() {
 
   return (
     <>
-      <p className="mb-6 text-center text-sm text-muted-foreground">{t('registerSubtitle')}</p>
+      <p className="text-muted-foreground mb-6 text-center text-sm">{t('registerSubtitle')}</p>
       <RegisterForm />
     </>
   );

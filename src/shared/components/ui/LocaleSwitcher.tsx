@@ -29,8 +29,8 @@ export function LocaleSwitcher({ className }: { className?: string }) {
       disabled={isPending}
       onChange={(event) => onChange(event.target.value as Locale)}
       className={cn(
-        'w-full rounded-md border border-border bg-card px-2 py-1.5 text-sm text-foreground',
-        'focus:outline-hidden focus:ring-2 focus:ring-ring disabled:opacity-60',
+        'border-border bg-card text-foreground w-full rounded-md border px-2 py-1.5 text-sm',
+        'focus:ring-ring focus:ring-2 focus:outline-hidden disabled:opacity-60',
         className,
       )}
     >

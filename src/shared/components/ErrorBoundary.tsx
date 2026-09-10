@@ -24,10 +24,10 @@ function DefaultFallback({ reset }: { reset: () => void }) {
   return (
     <div
       role="alert"
-      className="flex flex-col items-center justify-center gap-3 rounded-lg border border-border bg-card p-6 text-center"
+      className="border-border bg-card flex flex-col items-center justify-center gap-3 rounded-lg border p-6 text-center"
     >
-      <p className="font-medium text-foreground">{t('boundaryTitle')}</p>
-      <p className="max-w-sm text-sm text-muted-foreground">{t('boundaryBody')}</p>
+      <p className="text-foreground font-medium">{t('boundaryTitle')}</p>
+      <p className="text-muted-foreground max-w-sm text-sm">{t('boundaryBody')}</p>
       <Button size="sm" variant="secondary" onClick={reset}>
         {t('tryAgain')}
       </Button>

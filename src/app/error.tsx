@@ -20,8 +20,8 @@ export default function Error({
 
   return (
     <div className="flex min-h-screen flex-col items-center justify-center gap-4 p-6 text-center">
-      <h1 className="text-2xl font-bold text-foreground">{t('errors.genericTitle')}</h1>
-      <p className="max-w-md text-sm text-muted-foreground">{t('errors.genericBody')}</p>
+      <h1 className="text-foreground text-2xl font-bold">{t('errors.genericTitle')}</h1>
+      <p className="text-muted-foreground max-w-md text-sm">{t('errors.genericBody')}</p>
       <Button onClick={reset}>{t('common.actions.tryAgain')}</Button>
     </div>
   );

@@ -4,7 +4,11 @@ import { useEffect } from 'react';
 import { useTranslations } from 'next-intl';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { createTaskSchema, type CreateTaskFormValues } from '@/shared/utils/validators';
+import {
+  createTaskSchema,
+  type CreateTaskFormInput,
+  type CreateTaskFormValues,
+} from '@/shared/utils/validators';
 import { useCreateTask, useUpdateTask } from '@/features/tasks/hooks/useTasks';
 import { useProjects } from '@/features/projects/hooks/useProjects';
 import { Input } from '@/shared/components/ui/Input';
@@ -31,7 +35,9 @@ export function TaskForm({ task, defaultProjectId, onSuccess }: TaskFormProps) {
     handleSubmit,
     reset,
     formState: { errors },
-  } = useForm<CreateTaskFormValues>({
+    // Input/output generics: the form holds the input shape (defaults not yet
+    // applied), the resolver hands `onSubmit` the parsed output shape.
+  } = useForm<CreateTaskFormInput, unknown, CreateTaskFormValues>({
     resolver: zodResolver(createTaskSchema),
     defaultValues: {
       title: task?.title ?? '',

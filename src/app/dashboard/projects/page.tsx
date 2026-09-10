@@ -39,7 +39,7 @@ export default function ProjectsPage() {
           <Spinner />
         </div>
       ) : projects.length === 0 ? (
-        <div className="flex h-48 flex-col items-center justify-center text-muted-foreground">
+        <div className="text-muted-foreground flex h-48 flex-col items-center justify-center">
           <p className="text-lg font-medium">{t('projects.empty')}</p>
           <p className="text-sm">{t('projects.emptyHint')}</p>
         </div>

@@ -55,7 +55,7 @@ export default function TasksPage() {
         </ErrorBoundary>
 
         {data?.meta && (
-          <p className="text-sm text-muted-foreground">
+          <p className="text-muted-foreground text-sm">
             {t('tasks.showing', { count: tasks.length, total: data.meta.total })}
           </p>
         )}

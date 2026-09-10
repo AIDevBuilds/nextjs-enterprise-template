@@ -44,7 +44,7 @@ export function LoginForm() {
       />
 
       {isError && apiErrorMessage && (
-        <p role="alert" className="text-sm text-danger">
+        <p role="alert" className="text-danger text-sm">
           {apiErrorMessage}
         </p>
       )}
@@ -53,9 +53,9 @@ export function LoginForm() {
         {t('common.actions.signIn')}
       </Button>
 
-      <p className="text-center text-sm text-muted-foreground">
+      <p className="text-muted-foreground text-center text-sm">
         {t('auth.noAccount')}{' '}
-        <Link href="/register" className="font-medium text-primary hover:underline">
+        <Link href="/register" className="text-primary font-medium hover:underline">
           {t('common.actions.signUp')}
         </Link>
       </p>

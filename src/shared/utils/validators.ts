@@ -38,8 +38,16 @@ export const createProjectSchema = z.object({
 
 export const updateProjectSchema = createProjectSchema.partial();
 
+/**
+ * `z.infer` is the OUTPUT type: fields with `.default()` are required, because
+ * parsing fills them in. What a form actually holds before submit is the INPUT
+ * type, where those fields are optional. Zod 4 made this split strict, so any
+ * schema using `.default()` must expose both and the form must be typed
+ * `useForm<Input, unknown, Output>` (see TaskForm).
+ */
 export type LoginFormValues = z.infer<typeof loginSchema>;
 export type RegisterFormValues = z.infer<typeof registerSchema>;
+export type CreateTaskFormInput = z.input<typeof createTaskSchema>;
 export type CreateTaskFormValues = z.infer<typeof createTaskSchema>;
 export type UpdateTaskFormValues = z.infer<typeof updateTaskSchema>;
 export type CreateProjectFormValues = z.infer<typeof createProjectSchema>;

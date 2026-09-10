@@ -13,12 +13,12 @@ interface TaskCardProps {
 export function TaskCard({ task, onEdit, onDelete }: TaskCardProps) {
   const t = useTranslations();
   return (
-    <article className="rounded-lg border border-border bg-card p-4 shadow-xs transition-shadow hover:shadow-md">
+    <article className="border-border bg-card rounded-lg border p-4 shadow-xs transition-shadow hover:shadow-md">
       <div className="flex items-start justify-between gap-2">
         <div className="min-w-0 flex-1">
-          <h3 className="truncate font-medium text-foreground">{task.title}</h3>
+          <h3 className="text-foreground truncate font-medium">{task.title}</h3>
           {task.description && (
-            <p className="mt-1 line-clamp-2 text-sm text-muted-foreground">{task.description}</p>
+            <p className="text-muted-foreground mt-1 line-clamp-2 text-sm">{task.description}</p>
           )}
         </div>
         {(onEdit || onDelete) && (
@@ -51,12 +51,12 @@ export function TaskCard({ task, onEdit, onDelete }: TaskCardProps) {
         <Badge status={task.status}>{t(`tasks.status.${task.status}`)}</Badge>
         <Badge priority={task.priority}>{t(`tasks.priority.${task.priority}`)}</Badge>
         {task.dueDate && (
-          <span className="text-xs text-muted-foreground">
+          <span className="text-muted-foreground text-xs">
             {t('tasks.due', { date: formatDate(task.dueDate) })}
           </span>
         )}
         {task.assigneeId && (
-          <span className="text-xs text-muted-foreground">
+          <span className="text-muted-foreground text-xs">
             {t('common.fields.assignee')}: {task.assigneeId.slice(0, 8)}
           </span>
         )}

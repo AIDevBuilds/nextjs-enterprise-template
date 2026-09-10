@@ -234,10 +234,20 @@ key in `messages/en.json`, resolved with `useTranslations()` (client) or
 
 ## 8. Theming
 
-Light/dark is driven by semantic CSS variables in `src/app/globals.css` and
-mapped in `tailwind.config.ts`. `ThemeProvider` sets a `.dark` class on `<html>`;
-a blocking inline script in the root layout applies it before first paint so
-there is no flash.
+Tailwind 4 is **CSS-first**: there is no `tailwind.config.ts`. Tokens live in
+`@theme` in `src/app/globals.css`, and light/dark values in `:root` / `.dark`
+below it.
+
+That two-layer indirection is load-bearing. `.dark` is set on `<html>`, which is
+the same element (`:root`) the `@theme` vars are declared on — so overriding
+`--background` there recomputes `--color-background`. Declare the two on
+_different_ elements and runtime theming silently stops working.
+
+Theme state is an external store read through `useSyncExternalStore`
+(`shared/lib/theme/theme.ts`), not React state seeded from an effect — React
+19's compiler rules reject the latter. There is no `ThemeProvider`; import
+`useTheme` directly. A blocking inline script in the root layout applies the
+class before first paint so there is no flash.
 
 Write `bg-card text-card-foreground`, not `bg-white text-gray-900`. A component
 using literal shades will look broken in dark mode — that is the tell.
@@ -277,7 +287,7 @@ using literal shades will look broken in dark mode — that is the tell.
 ```bash
 npm run dev            # local dev (needs .env — copy .env.example)
 npm run type-check     # tsc --noEmit
-npm run lint           # eslint . --ext .ts,.tsx (enforces no-process-env etc.)
+npm run lint           # eslint . (flat config; enforces the rules below)
 npm run format         # prettier --write .
 npm test               # jest unit/component (MSW-backed)
 npm run test:coverage  # + thresholds (see jest.config.ts)

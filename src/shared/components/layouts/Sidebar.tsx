@@ -54,9 +54,9 @@ export function Sidebar() {
   const { logout, isPending } = useLogout();
 
   return (
-    <aside className="flex h-full w-64 flex-col border-r border-border bg-card">
-      <div className="flex h-16 items-center border-b border-border px-6">
-        <span className="text-lg font-bold text-primary">{env.NEXT_PUBLIC_APP_NAME}</span>
+    <aside className="border-border bg-card flex h-full w-64 flex-col border-r">
+      <div className="border-border flex h-16 items-center border-b px-6">
+        <span className="text-primary text-lg font-bold">{env.NEXT_PUBLIC_APP_NAME}</span>
       </div>
 
       <nav className="flex-1 space-y-1 px-3 py-4">
@@ -81,25 +81,25 @@ export function Sidebar() {
         })}
       </nav>
 
-      <div className="space-y-3 border-t border-border p-4">
+      <div className="border-border space-y-3 border-t p-4">
         <ThemeToggle className="w-full justify-center" />
         <LocaleSwitcher />
 
         {user && (
           <div className="mb-3 flex items-center gap-3">
-            <div className="flex h-8 w-8 items-center justify-center rounded-full bg-primary/15 text-sm font-medium text-primary">
+            <div className="bg-primary/15 text-primary flex h-8 w-8 items-center justify-center rounded-full text-sm font-medium">
               {user.name.charAt(0).toUpperCase()}
             </div>
             <div className="min-w-0 flex-1">
-              <p className="truncate text-sm font-medium text-foreground">{user.name}</p>
-              <p className="truncate text-xs text-muted-foreground">{user.email}</p>
+              <p className="text-foreground truncate text-sm font-medium">{user.name}</p>
+              <p className="text-muted-foreground truncate text-xs">{user.email}</p>
             </div>
           </div>
         )}
         <button
           onClick={() => logout()}
           disabled={isPending}
-          className="flex w-full items-center gap-2 rounded-lg px-3 py-2 text-sm text-muted-foreground hover:bg-accent hover:text-foreground disabled:opacity-60"
+          className="text-muted-foreground hover:bg-accent hover:text-foreground flex w-full items-center gap-2 rounded-lg px-3 py-2 text-sm disabled:opacity-60"
         >
           <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path
