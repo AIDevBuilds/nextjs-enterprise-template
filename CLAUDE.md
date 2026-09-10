@@ -93,7 +93,9 @@ Browser ──/api/<anything>──▶ src/app/api/[...path]/route.ts (BFF proxy
                              upstream ${API_URL}/<anything>
 ```
 
-- `src/middleware.ts` — fast Edge guard, **presence** check of the cookie only.
+- `src/proxy.ts` — fast Edge guard, **presence** check of the cookie only.
+  (Next 16 renamed the `middleware` convention to `proxy`; the exported function
+  must be named `proxy`.)
 - `src/shared/lib/auth/session.ts` `getServerSession()` — the real gate used by
   the dashboard server layout; reads cookies, checks JWT `exp`, returns the user.
 - `apiClient` (`src/shared/lib/axios.ts`) has **no request interceptor** and
@@ -331,7 +333,7 @@ Commits follow Conventional Commits (commitlint + Husky). `feat:`, `fix:`,
   hides.
 - **Renaming `app/dashboard/` to `app/(dashboard)/`.** Parentheses make it a
   route group and strip it from the URL — pages silently become `/tasks` instead
-  of `/dashboard/tasks` while every link, redirect and the middleware matcher
+  of `/dashboard/tasks` while every link, redirect and the proxy matcher
   still point at `/dashboard/*`. Verify route paths in `next build` output after
   touching `app/`.
 - Re-enabling `experimental.typedRoutes` without also fixing every nav-config

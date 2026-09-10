@@ -3,7 +3,7 @@ import { test as base, expect, type Page } from '@playwright/test';
 /**
  * E2E runs against `next dev` with NO real backend. This fixture intercepts every
  * `/api/**` call (the BFF surface) with an in-memory stub and, on login, seeds
- * the session cookies the middleware + server layout read. `npm run test:e2e`
+ * the session cookies the proxy + server layout read. `npm run test:e2e`
  * therefore passes with nothing else running.
  *
  * When you wire a real disposable test API, delete `installApiMocks` and point
