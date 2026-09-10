@@ -91,7 +91,7 @@ export function Modal({ isOpen, onClose, title, children, size = 'md' }: ModalPr
         aria-label={title ? undefined : t('fallbackLabel')}
         tabIndex={-1}
         className={cn(
-          'relative z-10 w-full rounded-xl bg-card shadow-2xl outline-none',
+          'relative z-10 w-full rounded-xl bg-card shadow-2xl outline-hidden',
           sizeClasses[size],
         )}
       >

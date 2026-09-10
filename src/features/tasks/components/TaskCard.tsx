@@ -13,7 +13,7 @@ interface TaskCardProps {
 export function TaskCard({ task, onEdit, onDelete }: TaskCardProps) {
   const t = useTranslations();
   return (
-    <article className="rounded-lg border border-border bg-card p-4 shadow-sm transition-shadow hover:shadow-md">
+    <article className="rounded-lg border border-border bg-card p-4 shadow-xs transition-shadow hover:shadow-md">
       <div className="flex items-start justify-between gap-2">
         <div className="min-w-0 flex-1">
           <h3 className="truncate font-medium text-foreground">{task.title}</h3>

@@ -13,7 +13,7 @@ interface ProjectCardProps {
 export function ProjectCard({ project, taskCount, onEdit, onDelete }: ProjectCardProps) {
   const t = useTranslations();
   return (
-    <article className="rounded-xl border border-border bg-card p-5 shadow-sm transition-shadow hover:shadow-md">
+    <article className="rounded-xl border border-border bg-card p-5 shadow-xs transition-shadow hover:shadow-md">
       <div className="flex items-start justify-between gap-2">
         <div className="min-w-0 flex-1">
           <h3 className="truncate text-base font-semibold text-foreground">{project.name}</h3>

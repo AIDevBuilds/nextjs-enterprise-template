@@ -69,9 +69,9 @@ export function ThemeToggle({ className }: { className?: string }) {
             onClick={() => setTheme(option.value)}
             className={cn(
               'flex items-center justify-center rounded-md p-1.5 transition-colors',
-              'focus:outline-none focus-visible:ring-2 focus-visible:ring-ring',
+              'focus:outline-hidden focus-visible:ring-2 focus-visible:ring-ring',
               isActive
-                ? 'bg-card text-foreground shadow-sm'
+                ? 'bg-card text-foreground shadow-xs'
                 : 'text-muted-foreground hover:text-foreground',
             )}
           >
